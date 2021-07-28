@@ -16,14 +16,13 @@ public class Student {
     public float getMark(int markNumber) {
         if (markNumber == 1)
             return labMark;
-        else
-        if (markNumber == 2)
+        else if (markNumber == 2)
             return courseMark;
 
         return 0;
     }
 
     public float calculateCourseTotal() {
-        return (float)(0.4 * labMark + 0.6 * courseMark);
+        return (float) (0.4 * labMark + 0.6 * courseMark);
     }
 }
