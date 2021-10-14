@@ -14,8 +14,8 @@ public class LotteryApp {
         BigInteger factNumberOfDraws = UsedFunctions.factorial(numberOfDraws);
         BigInteger factTotalPossibilities = UsedFunctions.factorial(totalPossibilities);
 
-        int intDifference = totalPossibilities - numberOfDraws;
-        BigInteger factDifference = UsedFunctions.factorial(intDifference);
+        int subtraction = totalPossibilities - numberOfDraws;
+        BigInteger factDifference = UsedFunctions.factorial(subtraction);
 
         BigInteger bigIntDenominator = factNumberOfDraws.multiply(factDifference);
 
