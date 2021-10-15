@@ -1,5 +1,6 @@
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 
 public class LotteryApp {
     private final int numberOfDraws;
@@ -10,22 +11,18 @@ public class LotteryApp {
         this.totalPossibilities = totalPossibilities;
     }
 
-    public double calculateWinningChances() {
+    public int calculateProbability() {
         BigInteger factNumberOfDraws = UsedFunctions.factorial(numberOfDraws);
         BigInteger factTotalPossibilities = UsedFunctions.factorial(totalPossibilities);
 
         int subtraction = totalPossibilities - numberOfDraws;
-        BigInteger factDifference = UsedFunctions.factorial(subtraction);
+        BigInteger factSubtraction = UsedFunctions.factorial(subtraction);
 
-        BigInteger bigIntDenominator = factNumberOfDraws.multiply(factDifference);
+        BigInteger bigIntDenominator = factNumberOfDraws.multiply(factSubtraction);
 
-        BigDecimal bigDecNominator = new BigDecimal(factTotalPossibilities);
-        BigDecimal bigDecDenominator = new BigDecimal(bigIntDenominator);
-
-        BigDecimal result = bigDecNominator.divide(bigDecDenominator);
-
-        return result.doubleValue();
+        return factTotalPossibilities.divide(bigIntDenominator).intValue();
     }
+
 
     public void extractNumbers() {
         var extractedNumbers = new int[6];
