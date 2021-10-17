@@ -7,6 +7,7 @@ public class Main {
         System.out.println("Winning chances are 1 in " + probability);
 
         System.out.println("The extracted numbers are : ");
-        lottery.extractNumbers();
+        int numberOfDraws = lottery.getNumberOfDraws();
+        UsedFunctions.printArray(lottery.extractNumbers(), numberOfDraws);
     }
 }

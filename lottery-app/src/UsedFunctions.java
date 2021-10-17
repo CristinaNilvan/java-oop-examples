@@ -11,8 +11,8 @@ public class UsedFunctions {
         return fact;
     }
 
-    public static void printArray(int[] array) {
-        for (int i = 0; i < 6; i++)
+    public static void printArray(int[] array, int n) {
+        for (int i = 0; i < n; i++)
             System.out.print(array[i] + " ");
     }
 }

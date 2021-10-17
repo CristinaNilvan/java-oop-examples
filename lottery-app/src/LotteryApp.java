@@ -1,6 +1,4 @@
-import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.math.RoundingMode;
 
 public class LotteryApp {
     private final int numberOfDraws;
@@ -9,6 +7,10 @@ public class LotteryApp {
     LotteryApp(int numberOfDraws, int totalPossibilities) {
         this.numberOfDraws = numberOfDraws;
         this.totalPossibilities = totalPossibilities;
+    }
+
+    public int getNumberOfDraws() {
+        return numberOfDraws;
     }
 
     public int calculateProbability() {
@@ -24,7 +26,7 @@ public class LotteryApp {
     }
 
 
-    public void extractNumbers() {
+    public int[] extractNumbers() {
         var extractedNumbers = new int[6];
 
         for (int i = 0; i < numberOfDraws; i++) {
@@ -36,6 +38,6 @@ public class LotteryApp {
 
         }
 
-        UsedFunctions.printArray(extractedNumbers);
+        return extractedNumbers;
     }
 }
