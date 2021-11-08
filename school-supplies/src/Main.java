@@ -25,7 +25,7 @@ public class Main {
         System.out.println("Number of notebooks : " + schoolbag.getNumberOfNotebooks());
         schoolbag.listNotebooks();
 
-        System.out.println("Number of manuals : " + schoolbag.getNumberOfNotebooks());
+        System.out.println("Number of manuals : " + schoolbag.getNumberOfManuals());
         schoolbag.listManuals();
     }
 }
