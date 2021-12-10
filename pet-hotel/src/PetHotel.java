@@ -208,10 +208,5 @@ public class PetHotel {
         deleteFromWaitingList();
         displayWaitingList();
         System.out.println();
-
-        /*System.out.println("The set:");
-        for (Receipt i : listOfReceipts) {
-            System.out.println(i);
-        }*/
     }
 }
