@@ -1,16 +1,16 @@
 import java.util.*;
 
 public class PetHotel {
-    final static int hotelCapacity = 10;
-    static int currentNoAnimals = 0;
-    static ArrayList<Client> listOfClients = new ArrayList<>();
-    static ArrayList<Animal> listOfAnimals = new ArrayList<>();
-    static ArrayList<Receipt> listOfReceipts = new ArrayList<>();
-    static HashMap<Receipt, Animal> animalsRecord = new HashMap<>();
-    static HashSet<String> arrivalDates = new HashSet<>();
-    static LinkedList<Receipt> waitingListReceipts = new LinkedList<>();
+    final int hotelCapacity = 10;
+    private int currentNoAnimals = 0;
+    private ArrayList<Client> listOfClients = new ArrayList<>();
+    private ArrayList<Animal> listOfAnimals = new ArrayList<>();
+    private ArrayList<Receipt> listOfReceipts = new ArrayList<>();
+    private HashMap<Receipt, Animal> animalsRecord = new HashMap<>();
+    private HashSet<String> arrivalDates = new HashSet<>();
+    private LinkedList<Receipt> waitingListReceipts = new LinkedList<>();
 
-    public static void populateObjects() {
+    public void populateObjects() {
         Client client01 = new Client("Pop George", "Chupi");
         listOfClients.add(client01);
         Client client02 = new Client("Georgescu Adriana", "Paloma");
@@ -100,18 +100,18 @@ public class PetHotel {
         addAnimal(receipt12, animal12);
     }
 
-    public static void addDate(Animal animal) {
+    public void addDate(Animal animal) {
         arrivalDates.add(animal.getArrivalDate());
     }
 
-    public static void displayAnimalByDates() {
-        for (String date:
-             arrivalDates) {
+    public void displayAnimalByDates() {
+        for (String date :
+                arrivalDates) {
             System.out.println("In " + date + " were accommodated : ");
             int count = 0;
 
-            for (Animal animal:
-                 listOfAnimals) {
+            for (Animal animal :
+                    listOfAnimals) {
                 if (date.equals(animal.getArrivalDate())) {
                     System.out.println(animal.getPetName());
                     count += 1;
@@ -123,7 +123,7 @@ public class PetHotel {
         }
     }
 
-    public static void addAnimal(Receipt receipt, Animal animal) {
+    public void addAnimal(Receipt receipt, Animal animal) {
         if (currentNoAnimals + 1 <= hotelCapacity) {
             animalsRecord.put(receipt, animal);
             listOfAnimals.add(animal);
@@ -133,7 +133,7 @@ public class PetHotel {
         }
     }
 
-    public static void displayReceipts(HashMap<Receipt, Animal> animalsRecord) {
+    public void displayReceipts() {
         for (Map.Entry entry :
                 animalsRecord.entrySet()) {
             for (Receipt receipt :
@@ -145,7 +145,7 @@ public class PetHotel {
         }
     }
 
-    public static void simulateCatsPlaying() {
+    public void simulateCatsPlaying() {
         for (Animal animal :
                 listOfAnimals) {
             if (animal instanceof Cat)
@@ -154,7 +154,7 @@ public class PetHotel {
         }
     }
 
-    public static void simulateDogsTraining() {
+    public void simulateDogsTraining() {
         for (Animal animal :
                 listOfAnimals) {
             if (animal instanceof Dog)
@@ -163,7 +163,7 @@ public class PetHotel {
         }
     }
 
-    public static void displayWaitingList() {
+    public void displayWaitingList() {
         for (Receipt receipt :
                 waitingListReceipts) {
             for (Client client :
@@ -174,44 +174,12 @@ public class PetHotel {
         }
     }
 
-    public static void deleteFromWaitingList() {
+    public void deleteFromWaitingList() {
         for (int i = 0; i < waitingListReceipts.size(); i++) {
             if (waitingListReceipts.get(i).getPrice() < 50) {
                 waitingListReceipts.remove(i);
                 i -= 1;
             }
         }
-    }
-
-    public static void main(String[] args) {
-        populateObjects();
-
-        System.out.println("List of animals by their arrival date : ");
-        displayAnimalByDates();
-        System.out.println();
-
-        System.out.println("Receipts over 200 lei : ");
-        displayReceipts(animalsRecord);
-        System.out.println();
-
-        simulateCatsPlaying();
-        System.out.println();
-
-        simulateDogsTraining();
-        System.out.println();
-
-        System.out.println("Current waiting list : ");
-        displayWaitingList();
-        System.out.println();
-
-        System.out.println("The waiting list after the deletion of receipts less than 50 lei : ");
-        deleteFromWaitingList();
-        displayWaitingList();
-        System.out.println();
-
-        /*System.out.println("The set:");
-        for (Receipt i : listOfReceipts) {
-            System.out.println(i);
-        }*/
     }
 }
