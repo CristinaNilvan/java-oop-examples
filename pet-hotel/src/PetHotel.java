@@ -134,15 +134,14 @@ public class PetHotel {
     }
 
     public void displayReceipts() {
-        for (Map.Entry entry :
-                animalsRecord.entrySet()) {
+        animalsRecord.forEach((key, value) -> {
             for (Receipt receipt :
                     listOfReceipts) {
-                if (entry.getKey().equals(receipt))
+                if (key.equals(receipt))
                     if (receipt.getPrice() > 200)
-                        System.out.println("Key : " + entry.getKey() + "    " + "Value : " + entry.getValue());
+                        System.out.println("Key : " + key + "    " + "Value : " + value);
             }
-        }
+        });
     }
 
     public void simulateCatsPlaying() {
